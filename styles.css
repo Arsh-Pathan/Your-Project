@@ -1,0 +1,560 @@
+/* ==========================================================================
+   Clean Modern High-Class Launchpad
+   "Your Project is Online!" &bull; Solid Component Design (No Borders)
+   ========================================================================== */
+
+:root {
+  /* Clean Light Theme Tokens */
+  --bg-page: #fafbfc;
+  --surface-card: #ffffff;
+  --skeleton-base: #e9ecef;
+  --skeleton-darker: #dee2e6;
+  --text-heading: #111827;
+  --text-body: #4b5563;
+  --text-muted: #9ca3af;
+  --icon-color: #9ca3af;
+  --btn-dark: #4b5563;
+  --btn-light: #e5e7eb;
+
+  /* Smooth Motion Physics */
+  --motion-easing: cubic-bezier(0.4, 0, 0.2, 1);
+  --motion-duration: 2.4s;
+}
+
+/* ================= RESET ================= */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  background-color: var(--bg-page);
+  color: var(--text-body);
+  min-height: 100vh;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* ================= PAGE CONTAINER ================= */
+.page-wrap {
+  max-width: 980px;
+  margin: 0 auto;
+  padding: 70px 24px 140px;
+  display: flex;
+  flex-direction: column;
+  gap: 72px;
+}
+
+/* ================= HERO SECTION ================= */
+.hero-section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 16px;
+}
+
+/* Hero Heading in Darker Placeholder Tone */
+.hero-heading {
+  font-size: clamp(34px, 5.5vw, 56px);
+  font-weight: 800;
+  letter-spacing: -0.035em;
+  color: #4b5563;
+  line-height: 1.12;
+  max-width: 720px;
+}
+
+.hero-subtext {
+  font-size: clamp(15px, 1.8vw, 17px);
+  color: var(--text-muted);
+  max-width: 640px;
+  line-height: 1.5;
+  margin-bottom: 2px;
+  text-wrap: balance;
+}
+
+.hero-subtext strong {
+  color: #374151;
+  font-weight: 600;
+}
+
+/* Mockup Buttons - Solid Colors, No Borders */
+.hero-buttons {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  margin-top: 4px;
+  margin-bottom: 24px;
+}
+
+.btn-pill {
+  width: 130px;
+  height: 42px;
+  border-radius: 21px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 14px;
+  font-weight: 600;
+  letter-spacing: -0.01em;
+  user-select: none;
+  cursor: pointer;
+  border: none;
+  transition: transform 0.2s ease;
+}
+
+.btn-pill:hover {
+  transform: translateY(-1px);
+}
+
+.btn-pill.solid {
+  background-color: var(--btn-dark);
+  color: #f3f4f6;
+  border: none;
+}
+
+.btn-pill.outline {
+  background-color: var(--btn-light);
+  color: #4b5563;
+  border: none;
+}
+
+/* ================= HERO SPLIT SHOWCASE (SOLID CARD, NO BORDERS) ================= */
+.hero-split-showcase {
+  width: 100%;
+  display: grid;
+  grid-template-columns: 1.1fr 1fr;
+  gap: 40px;
+  align-items: center;
+  background: var(--surface-card);
+  border: none;
+  border-radius: 20px;
+  padding: 36px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.03);
+  text-align: left;
+}
+
+/* Left: Preview Card */
+.preview-card {
+  background: var(--bg-page);
+  border: none;
+  border-radius: 14px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+
+.preview-card-media {
+  width: 100%;
+  aspect-ratio: 16 / 10;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: none;
+}
+
+.preview-card-footer {
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.preview-pills-row {
+  display: flex;
+  gap: 8px;
+}
+
+.mini-pill {
+  width: 48px;
+  height: 18px;
+  border-radius: 9px;
+  background-color: var(--skeleton-darker);
+  border: none;
+}
+
+/* Right: Narrative & Checklist */
+.preview-narrative {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.narrative-lines {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin: 2px 0;
+}
+
+.checklist-group {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-top: 6px;
+}
+
+.check-row {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.check-dot {
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  background-color: var(--skeleton-darker);
+  flex-shrink: 0;
+  border: none;
+}
+
+.image-icon {
+  color: var(--icon-color);
+  opacity: 0.6;
+}
+
+.image-icon.sm {
+  opacity: 0.5;
+}
+
+/* ================= CLEAN MATTE SKELETON ENGINE ================= */
+.skeleton {
+  background-color: var(--skeleton-base);
+  animation: cleanBreathe var(--motion-duration) var(--motion-easing) infinite ease-in-out;
+  will-change: opacity;
+  border: none;
+}
+
+@keyframes cleanBreathe {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.52;
+  }
+}
+
+/* Skeleton Lines */
+.line {
+  border-radius: 6px;
+  display: block;
+  border: none;
+}
+
+.line.md {
+  height: 20px;
+  border-radius: 6px;
+}
+
+.line.sm {
+  height: 14px;
+  border-radius: 5px;
+}
+
+.line.xs {
+  height: 10px;
+  border-radius: 4px;
+}
+
+.line.tag {
+  width: 48px;
+  height: 12px;
+  border-radius: 6px;
+  background-color: var(--skeleton-darker);
+}
+
+/* Width Utility */
+.w-100 { width: 100%; }
+.w-95  { width: 95%; }
+.w-90  { width: 90%; }
+.w-85  { width: 85%; }
+.w-80  { width: 80%; }
+.w-75  { width: 75%; }
+.w-70  { width: 70%; }
+.w-65  { width: 65%; }
+.w-60  { width: 60%; }
+.w-50  { width: 50%; }
+.w-45  { width: 45%; }
+
+/* ================= 3-CARD GRID (SOLID CARDS, NO BORDERS) ================= */
+.cards-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+}
+
+.card {
+  background: var(--surface-card);
+  border: none;
+  border-radius: 16px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.02);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.05);
+}
+
+.card-image {
+  width: 100%;
+  aspect-ratio: 16 / 10;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: none;
+}
+
+.card-content {
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+/* ================= DEPLOYMENT STATUS METRICS ================= */
+.metrics-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 18px;
+}
+
+.metric-card {
+  background: var(--surface-card);
+  border: none;
+  border-radius: 14px;
+  padding: 22px 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.02);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.metric-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.05);
+}
+
+.metric-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.metric-label {
+  font-size: 11px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--text-muted);
+}
+
+.status-live-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background-color: #4b5563;
+  animation: cleanBreathe 2s infinite ease-in-out;
+}
+
+.mini-icon {
+  width: 14px;
+  height: 14px;
+  border-radius: 4px;
+  background-color: var(--skeleton-darker);
+}
+
+/* ================= WORKFLOW SKELETON GRID ================= */
+.workflow-section {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.section-header {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.workflow-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+}
+
+.workflow-card {
+  background: var(--surface-card);
+  border: none;
+  border-radius: 16px;
+  padding: 28px 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.02);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.workflow-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.05);
+}
+
+.step-badge {
+  width: 32px;
+  height: 32px;
+  border-radius: 8px;
+  background-color: var(--skeleton-darker);
+  margin-bottom: 2px;
+}
+
+.workflow-action {
+  width: 90px;
+  height: 30px;
+  border-radius: 15px;
+  background-color: var(--skeleton-base);
+  margin-top: 6px;
+}
+
+/* ================= RESOURCES & DOCS ================= */
+.resources-section {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.resources-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 20px;
+}
+
+.resource-card {
+  background: var(--surface-card);
+  border: none;
+  border-radius: 16px;
+  padding: 24px;
+  display: flex;
+  align-items: center;
+  gap: 18px;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.02);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.resource-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.05);
+}
+
+.resource-icon-wrap {
+  width: 44px;
+  height: 44px;
+  border-radius: 12px;
+  background-color: var(--skeleton-base);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--icon-color);
+  flex-shrink: 0;
+}
+
+.resource-text {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  flex: 1;
+}
+
+/* ================= CLEAN FOOTER (NO BORDER) ================= */
+.footer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding-top: 32px;
+  border: none;
+}
+
+.footer-powered {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  font-size: 13px;
+  color: var(--text-muted);
+}
+
+.footer-label {
+  font-size: 13px;
+  color: var(--text-muted);
+}
+
+.codehost-brand {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  color: #4b5563;
+  font-weight: 600;
+  text-decoration: none;
+  transition: color 0.2s ease, opacity 0.2s ease;
+}
+
+.codehost-brand:hover {
+  color: #111827;
+  opacity: 0.9;
+}
+
+.codehost-brand svg {
+  display: block;
+}
+
+/* ================= RESPONSIVE ================= */
+@media (max-width: 768px) {
+  .page-wrap {
+    padding: 40px 16px 80px;
+    gap: 50px;
+  }
+
+  .hero-split-showcase {
+    grid-template-columns: 1fr;
+    padding: 24px;
+    gap: 28px;
+  }
+
+  .cards-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .metrics-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .workflow-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .resources-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 480px) {
+  .metrics-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* ================= CELEBRATION PARTY POPPER CANVAS ================= */
+#popper-canvas {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  pointer-events: none;
+  z-index: 99999;
+}
